@@ -1,4 +1,6 @@
 using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Soenneker.Dtos.IdNameValue;
 
 namespace Soenneker.Responses.FileUpload;
 
@@ -7,6 +9,12 @@ namespace Soenneker.Responses.FileUpload;
 /// </summary>
 public record FileUploadResponse
 {
-    [JsonPropertyName("uri")]
-    public string? Uri { get; set; }
+    /// <summary>
+    /// Id = The unique identifier for the uploaded file
+    /// Name = The original name of the uploaded file
+    /// Value = The URL or path to access the uploaded file
+    /// </summary>
+    [JsonPropertyName("result")]
+    [JsonProperty("result")]
+    public IdNameValue Result { get; set; } = null!;
 }
