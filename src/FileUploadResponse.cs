@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
+using Soenneker.Attributes.PublicOpenApiObject;
 using Soenneker.Dtos.IdNameValue;
 
 namespace Soenneker.Responses.FileUpload;
@@ -7,6 +8,7 @@ namespace Soenneker.Responses.FileUpload;
 /// <summary>
 /// A record DTO type for common file upload functionality
 /// </summary>
+[PublicOpenApiObject]
 public record FileUploadResponse
 {
     /// <summary>
