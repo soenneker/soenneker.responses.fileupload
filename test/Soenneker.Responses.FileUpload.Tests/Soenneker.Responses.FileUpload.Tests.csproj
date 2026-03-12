@@ -27,7 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Soenneker.Responses.FileUpload.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Responses.FileUpload\Soenneker.Responses.FileUpload.csproj" />
     </ItemGroup>
 
     <ItemGroup>
