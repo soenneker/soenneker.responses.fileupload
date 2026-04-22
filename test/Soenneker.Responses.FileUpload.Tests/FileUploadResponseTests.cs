@@ -1,16 +1,15 @@
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Responses.FileUpload.Tests;
 
-[Collection("Collection")]
-public class FileUploadResponseTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public class FileUploadResponseTests : HostedUnitTest
 {
-    public FileUploadResponseTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public FileUploadResponseTests(Host host) : base(host)
     {
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
