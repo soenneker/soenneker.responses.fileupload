@@ -44,10 +44,6 @@
     </ItemGroup>
 
     <ItemGroup>
-<<<<<<< HEAD
         <PackageReference Include="Soenneker.Dtos.IdNameValue" Version="4.0.634" />
-=======
-      <PackageReference Include="Soenneker.Dtos.IdNameValue" Version="4.0.636" />
->>>>>>> 047eb62028c01e5f4c70e39f273240ce0b57abe9
     </ItemGroup>
 </Project>
