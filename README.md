@@ -5,20 +5,46 @@
 
 # Soenneker.Responses.FileUpload
 
-Describes a successfully uploaded file and how the client can identify and access it.
+A small response contract for returning an uploaded file's identifier, original name, and locator.
 
-## Install
+## Installation
 
 ```bash
 dotnet add package Soenneker.Responses.FileUpload
 ```
 
-## What you get
+## Usage
 
-- `FileUploadResponse` — Describes a successfully uploaded file and how the client can identify and access it.
+Return `FileUploadResponse` after persisting an uploaded file:
 
-## API at a glance
+```csharp
+using Soenneker.Dtos.IdNameValue;
+using Soenneker.Responses.FileUpload;
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `FileUploadResponse.Result` | Uploaded-file reference whose `id` is the stable file identifier, `name` is the original file name, and `value` is its access URL or path. | Uploaded-file reference whose `id` is the stable file identifier, `name` is the original file name, and `value` is its access URL or path. |
+var response = new FileUploadResponse
+{
+    Result = new IdNameValue
+    {
+        Id = storedFile.Id,
+        Name = uploadedFile.FileName,
+        Value = storedFile.DownloadUrl
+    }
+};
+
+return Results.Ok(response);
+```
+
+The response serializes with either `System.Text.Json` or Newtonsoft.Json:
+
+```json
+{
+  "result": {
+    "id": "file_01J6A3M4YX",
+    "name": "invoice.pdf",
+    "value": "https://files.example.com/file_01J6A3M4YX"
+  }
+}
+```
+
+`Result.Id` and `Result.Name` are required by the underlying `IdNameValue` DTO. `Result.Value` is nullable; use it for the URL, path, or other application-defined locator returned to the client.
+
