@@ -34,7 +34,7 @@ var response = new FileUploadResponse
 return Results.Ok(response);
 ```
 
-The response serializes with either `System.Text.Json` or Newtonsoft.Json:
+The response serializes with `System.Text.Json`:
 
 ```json
 {
@@ -47,4 +47,3 @@ The response serializes with either `System.Text.Json` or Newtonsoft.Json:
 ```
 
 `Result.Id` and `Result.Name` are required by the underlying `IdNameValue` DTO. `Result.Value` is nullable; use it for the URL, path, or other application-defined locator returned to the client.
-
